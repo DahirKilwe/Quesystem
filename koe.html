@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Køsystem – Venterom</title>
+  <link rel="stylesheet" href="koe.css" />
+</head>
+<body>
+  <div class="shell">
+    <section class="panel">
+      <h1>Pasient · Ta kølapp</h1>
+      <div class="row">
+        <div>
+          <label for="p-name">Navn (valgfritt)</label>
+          <input id="p-name" type="text" placeholder="F.eks. Ola Nordmann" autocomplete="off">
+        </div>
+        <div>
+          <label for="p-reason">Årsak (valgfritt)</label>
+          <input id="p-reason" type="text" placeholder="F.eks. Kontroll, sårskade …" autocomplete="off">
+        </div>
+      </div>
+      <div class="btn-row">
+        <button id="ticket-btn">Ta kølapp</button>
+        <button class="secondary" id="peek-btn">Vis min plass</button>
+      </div>
+
+      <div class="display" style="margin-top:14px;">
+        <div class="label">Din kølapp</div>
+        <div class="big" id="my-ticket">—</div>
+        <div class="muted">Posisjon: <span id="my-pos">—</span> · Foran deg: <span id="my-ahead">—</span> · Estimat: <span id="my-eta">—</span></div>
+      </div>
+
+      <h2 style="margin-top:20px;">Venteromsliste</h2>
+      <ul class="queue" id="queue-list"></ul>
+      <p class="empty" id="empty-state">Ingen i køen ennå.</p>
+    </section>
+
+    <section class="panel">
+      <h1>Lege · Kontrollpanel (flere rom)</h1>
+      <div class="row" style="margin-bottom:10px;">
+        <div>
+          <label for="new-room">Legg til rom</label>
+          <input id="new-room" type="text" placeholder="F.eks. 3B">
+        </div>
+        <div>
+          <label for="avg-min">Minutter per pasient</label>
+          <input id="avg-min" type="number" min="1" value="7">
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:0;">
+        <button id="add-room-btn">Opprett rom</button>
+        <button class="secondary" id="reset-btn">Nullstill hele køen</button>
+      </div>
+      <p class="muted" style="margin-top:8px;">Hvert rom har egne knapper for «Kall neste» og «Annonsér».</p>
+
+      <h2 style="margin-top:14px;">Rommene</h2>
+      <div class="rooms" id="rooms"></div>
+    </section>
+  </div>
+
+  <script src="koe.js"></script>
+</body>
+</html>
